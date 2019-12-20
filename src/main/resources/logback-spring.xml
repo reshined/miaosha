@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <!--&lt;!&ndash;info日志级别&ndash;&gt;-->
+    <!--<appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+      <!--&lt;!&ndash;禁止掉debug和error级别的日志,只接受INFO级别日志&ndash;&gt;-->
+      <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+          <!--<level>INFO</level>-->
+          <!--<OnMatch>ACCEPT</OnMatch>-->
+          <!--<OnMismatch>DENY</OnMismatch>-->
+      <!--</filter>-->
+      <!--<encoder>-->
+          <!--<pattern>-->
+              <!--%d - %msg%n-->
+          <!--</pattern>-->
+      <!--</encoder>-->
+      <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+          <!--<fileNamePattern>-->
+              <!--D:\Inteliij_Project\seckill\log\info\recharge-info.%d.log-->
+          <!--</fileNamePattern>-->
+      <!--</rollingPolicy>-->
+    <!--</appender>-->
+    <!--debug日志级别-->
+    <!--<appender name="fileDebugLog" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+        <!--&lt;!&ndash;禁止掉info和error级别的日志,只接受debug级别日志&ndash;&gt;-->
+        <!--<filter class="ch.qos.logback.classic.filter.LevelFilter">-->
+            <!--<level>DEBUG</level>-->
+            <!--<OnMatch>ACCEPT</OnMatch>-->
+            <!--<OnMismatch>DENY</OnMismatch>-->
+        <!--</filter>-->
+        <!--<encoder>-->
+            <!--<pattern>-->
+                <!--%d - %msg%n-->
+            <!--</pattern>-->
+        <!--</encoder>-->
+        <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+            <!--<fileNamePattern>-->
+                <!--D:\Inteliij_Project\seckill\log\debug\recharge-debug.%d.log-->
+            <!--</fileNamePattern>-->
+        <!--</rollingPolicy>-->
+    <!--</appender>-->
+
+
+    <!--Error级别-->
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--添加过滤器，过滤掉指定级别一下的日志-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %d - %msg%n
+            </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>
+                D:\Inteliij_Project\seckill\log\error\discount-error.%d.log
+            </fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root lever="info">
+        <appender-ref ref="consoleLog" />
+        <!--<appender-ref ref="fileInfoLog" />-->
+        <!--<appender-ref ref="fileDebugLog" />-->
+        <appender-ref ref="fileErrorLog" />
+    </root>
+
+</configuration>

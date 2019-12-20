@@ -1,0 +1,47 @@
+server:
+  port: 8088
+
+mybatis:
+  type-aliases-package: com.discount.componet.dataobject
+  mapper-locations: classpath:mapper/*.xml
+
+
+spring:
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    username: root
+    url: jdbc:mysql://rm-wz98a02snvvrnhp920o.mysql.rds.aliyuncs.com:3306/ms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull
+    name: ms
+
+  redis:
+    database: 4
+    host: 47.108.93.108
+    port: 6879
+    password: y532798113.
+    pool.max-idle: 500
+    pool.min-idle: 50
+    pool.max-active: 1000
+    pool.max-wait: 500
+    timeout: 86400
+
+  invalid:
+    time: 86400
+
+
+maxDiscount: 1.0
+
+minDiscount: 0.8
+
+onlineDiscountCode: SMS_172006937
+
+#服务器上的路径
+fastUrl: /home/test/client.conf
+
+expireSeconds: 86400
+
+cookie_name: token
+
+

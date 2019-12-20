@@ -1,0 +1,83 @@
+server:
+  port: 8088
+
+mybatis:
+  type-aliases-package: com.discount.componet.dataobject
+  mapper-locations: classpath:mapper/*.xml
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: y532798113*
+    url: jdbc:mysql://rm-bp1egtop1z690isq7yo.mysql.rds.aliyuncs.com:3206/ms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    name: ms
+    max-active: 1000
+    max-idle: 1000
+    min-idle: 500
+    initial-size: 100
+    max-wait: 60000
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+
+  redis:
+    database: 4
+    host: 47.108.93.108
+    port: 6879
+    password: y532798113.
+    pool.max-idle: 500
+    pool.min-idle: 50
+    pool.max-active: 1000
+    pool.max-wait: 500
+    timeout: 86400
+
+  invalid:
+    time: 3600
+  rabbitmq:
+    host: 47.108.93.108
+    port: 5672
+    username: admin
+    password: y532798113*
+    listener:
+      simple:
+        auto-startup: true
+        default-requeue-rejected: true
+        prefetch: 1 #一次出队列数量
+        max-concurrency: 10
+        concurrency: 10
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000
+        max-attempts: 3
+        max-interval: 10000
+        multiplier: 1.0
+    virtual-host: /
+
+
+maxDiscount: 1.0
+
+minDiscount: 0.8
+
+onlineDiscountCode: SMS_172006937
+
+#fastUrl: D:\Inteliij_Project\Integrate\src\main\resources\client.conf
+#服务器上的路径
+fastUrl: /home/test/client.conf
+
+#toekn有效期
+expireSeconds: 86400
+#登陆token
+cookie_name: token
+
+goods_key: gl
+
+
+
